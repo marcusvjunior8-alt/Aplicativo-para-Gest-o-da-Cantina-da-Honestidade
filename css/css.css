@@ -212,10 +212,14 @@ a {
 /*
     4. CABEÇALHO (CIMA) E BOTÃO HAMBÚRGUER
 */
+/*
+    4. CABEÇALHO (CIMA) E BOTÃO HAMBÚRGUER
+*/
 .cima {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* Mantém o carrinho à direita se houver, ou a esquerda alinhada */
     background-color: white;
     border-bottom: 1px solid gray;
     height: 60px;
@@ -224,6 +228,7 @@ a {
     margin-bottom: 10px;
 }
 
+/* Agrupa menu + usuario/texto no canto esquerdo */
 .cima-esquerda {
     display: flex;
     align-items: center;
@@ -245,20 +250,44 @@ a {
     transform: scale(1.1);
 }
 
-/* Estilo para a div que agrupa foto e texto no cabeçalho */
+/* Container de Foto + Texto (ou só Texto) no cabeçalho */
 .perfil-usuario-cabecalho {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
-/* Estilo para a imagem de perfil no cabeçalho */
 .foto-perfil-cabecalho {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #2E7D32;
+}
+
+/* Zera as margens para não empurrar os textos */
+.texto-usuario-cabecalho {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.texto-usuario-cabecalho h2,
+.texto-usuario-cabecalho h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    color: #3C2415;
+    line-height: 1.2;
+}
+
+.texto-usuario-cabecalho p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    text-align: left;
+    color: #666666;
 }
 
 /* Ícone de Carrinho no Canto Superior Direito */
@@ -286,7 +315,6 @@ a {
     object-fit: contain;
 }
 
-/* Bolinha vermelha com quantidade de itens */
 .badge-carrinho {
     position: absolute;
     top: -2px;

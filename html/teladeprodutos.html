@@ -56,19 +56,6 @@
           </div>
         </button>
 
-        <!-- Compras / Carrinho -->
-        <button class="compras" id="botaocarrinho" onclick="toggleCarrinho()">
-          <div class="Compras" id="Compras">
-            <div class="imgCompras" id="imgCompras">
-              <img src="../images/carteira.png" alt="" aria-hidden="true" />
-            </div>
-
-            <div class="txtCompras" id="txtCompras">
-              <h4 class="txcompras">Compras</h4>
-            </div>
-          </div>
-        </button>
-
         <!-- Histórico -->
         <div class="historico" id="historico">
           <div class="imghistorico" id="imghistorico">
@@ -111,15 +98,19 @@
 
       <!-- Cabeçalho -->
       <header class="cima" id="cima">
-        <button id="btnMenu" class="btn-menu" onclick="traitMenu()" aria-label="Abrir menu lateral" aria-controls="lado">
-          &#9776; <!-- Ícone dos 3 traços -->
-        </button>
+        <!-- Agrupamento da esquerda (Botão + Foto e Texto) -->
+        <div class="cima-esquerda">
+          <button id="btnMenu" class="btn-menu" onclick="traitMenu()" aria-label="Abrir menu lateral"
+            aria-controls="lado">
+            &#9776;
+          </button>
 
-        <div class="perfil-usuario-cabecalho">
-          <img src="../perfil (1).png" alt="Foto de usuário" class="foto-perfil-cabecalho">
-          <div>
-            <h1>Hello, Student!</h1>
-            <p>Welcome back</p>
+          <div class="perfil-usuario-cabecalho">
+            <img src="../perfil (1).png" alt="Foto de usuário" class="foto-perfil-cabecalho">
+            <div class="texto-usuario-cabecalho">
+              <h2>Hello, Student!</h2>
+              <p>Welcome back</p>
+            </div>
           </div>
         </div>
 
@@ -145,7 +136,8 @@
 
             <!-- Campo de pesquisa -->
             <div class="inputPesquisa" id="inputPesquisa">
-              <button class="lupa" aria-label="Buscar"><img src="../images/lupa.png" class="imglupa" width="15px" alt="" aria-hidden="true"></button>
+              <button class="lupa" aria-label="Buscar"><img src="../images/lupa.png" class="imglupa" width="15px" alt=""
+                  aria-hidden="true"></button>
               <input class="input_search" type="text" name="pesquisar" id="inputPesquisar" placeholder="Pesquisar..." />
             </div>
           </div>
@@ -185,10 +177,6 @@
                   <div class="depositarTexto" id="depositarTexto">Ver carteira</div>
                 </button>
               </a>
-
-              <button class="VerExtrato" id="VerExtrato">
-                Ver Extrato
-              </button>
             </div>
           </div>
 
@@ -211,7 +199,8 @@
               </div>
 
               <div class="botaoCarrinhoDIV" id="botaoCarrinhoDIV">
-                <button class="botaoCarrinho" id="botaoCarrinho" onclick="finalizarPagamento()">Finalizar compra</button>
+                <button class="botaoCarrinho" id="botaoCarrinho" onclick="finalizarPagamento()">Finalizar
+                  compra</button>
                 <button class="btnCancelar" onclick="cancelarCompra()">Cancelar Compra</button>
               </div>
             </div>
@@ -231,7 +220,8 @@
   <!-- Modal de Pagamento -->
   <div class="modal-pagamento-overlay" id="modalPagamento">
     <div class="modal-pagamento-card">
-      <button class="btn-fechar-modal" onclick="fecharModalPagamento()" aria-label="Fechar modal de pagamento">&times;</button>
+      <button class="btn-fechar-modal" onclick="fecharModalPagamento()"
+        aria-label="Fechar modal de pagamento">&times;</button>
 
       <h2>Formas de Pagamento</h2>
       <p class="modal-substituto">Escolha como deseja pagar:</p>
