@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Configurações da página -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../images/favicon.png">
+  <title>Cantina da bondade</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/carteira.css" />
+
+  <!-- JavaScript -->
+  <script src="../Js/carteira.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Conteúdo inteiro da página -->
+  <div class="conteudo" id="conteudo">
+
+    <!-- Menu lateral (Drawer) - TUDO DO MENU FICA AQUI DENTRO -->
+    <div class="lado" id="lado">
+      <!-- Botão para fechar o menu -->
+      <button class="btn-fechar" onclick="traitMenu()">&times;</button>
+
+      <!-- Logo -->
+      <div class="logo" id="logo">
+        <img src="../images/Aug 14, 2026, 03_21_48 PM.png" alt="LOGO" class="logo" />
+      </div>
+
+      <!-- Ícones/Menu -->
+      <div class="icons" id="icons">
+
+        <!-- Início -->
+        <a href="../html/teladeprodutos.html">
+          <div class="inicio" id="inicio">
+            <div class="imgInicio" id="imgInicio">
+              <img src="../images/home.png" alt="home" />
+            </div>
+
+            <div class="txthome" id="txthome">
+              <h4 class="txinicio">Inicio</h4>
+            </div>
+          </div>
+        </a>
+
+        <!-- Carteira -->
+        <button id="butaocarteira" onclick="toggleCarteira()">
+          <div class="carteira" id="carteira">
+            <div class="imgcarteira" id="imgcarteira">
+              <img src="../images/carteira.png" alt="home" />
+            </div>
+
+            <div class="txtcarteira" id="txtcarteira">
+              <h4 class="txcarteira">Carteira</h4>
+            </div>
+          </div>
+        </button>
+
+        <!-- Compras -->
+        <button class="compras" id="botaocarrinho" onclick="toggleCarrinho()">
+          <div class="Compras" id="Compras">
+            <div class="imgCompras" id="imgCompras">
+              <img src="../images/carteira.png" alt="home" />
+            </div>
+
+            <div class="txtCompras" id="txtCompras">
+              <h4 class="txcompras">Compras</h4>
+            </div>
+          </div>
+        </button>
+
+        <!-- Histórico -->
+        <div class="historico" id="historico">
+          <div class="imghistorico" id="imghistorico">
+            <img src="../images/carteira.png" alt="home" />
+          </div>
+
+          <div class="txthistorico" id="txthistorico">
+            <h4 class="txhistorico"><a href="./historico.html" class="link">Histórico</a></h4>
+          </div>
+        </div>
+
+        <!-- Perfil -->
+        <div class="perfil" id="perfil">
+          <div class="imgPerfil" id="imgPerfil">
+            <img src="../images/carteira.png" alt="home" />
+          </div>
+
+          <div class="imgPerfil" id="imgPerfilAlt">
+            <h4 class="txperfil"><a href="./perfil.html" class="link">Perfil</a></h4>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sair -->
+      <div class="sair" id="sair">
+        <a href="./index.html" class="link-sair">
+          <div class="imgSair" id="imgSair">
+            <img src="../images/carteira.png" alt="Sair" width="24px" height="24px" />
+          </div>
+          <div class="txtSair" id="txtSair">
+            <h4 class="butaosair">Sair</h4>
+          </div>
+        </a>
+      </div>
+
+    </div> <!-- FIM DA DIV LADO -->
+
+
+    <!-- Parte direita da página -->
+    <div class="direita">
+
+      <!-- Cabeçalho -->
+      <div class="cima" id="cima">
+        <button id="btnMenu" class="btn-menu" onclick="traitMenu()">
+          &#9776; <!-- Ícone dos 3 traços -->
+        </button>
+        <div>
+          <h2>Carteira Digital</h2>
+          <p>Gerencie seu saldo, faça depósitos e acompanhe seu extrato</p>
+        </div>
+      </div>
+
+      <!-- Conteúdo principal -->
+      <div class="conteudoMeio" id="conteudoMeio">
+
+        <div class="cimaSaldo" id="cimaSaldo">
+
+          <div class="textoSaldoCima" id="textoSaldoCima">
+            <h3>Saldo atual</h3>
+            <h1>R$ 13,00</h1>
+          </div>
+
+          <div class="imgSaldoCima" id="imgSaldoCima">
+            <img src="../images/carteira.png" alt="carteira" class="imgSaldo" id="imgSaldo" />
+          </div>
+
+        </div>
+
+        <div class="baixoCarteira" id="baixoCarteira">
+
+          <div class="depositarPG2" id="depositarPG2">
+
+            <div class="inputs" id="inputs">
+              <div class="cimaDepositarPG2" id="cimaDepositarPG2">
+                <div class="iconeDepositarPG2" id="iconeDepositarPG2">
+                  <img src="../images/DINHEIRO (1).png" alt="carteira" class="imgDepositar" id="imgDepositar">
+                </div>
+                <div class="textoDepositarPG2" id="textoDepositarPG2">
+                  <h3>Depósito</h3>
+                </div>
+              </div>
+              <div class="valorDepositar" id="valorDepositar">
+                <label for="inputDepositar" class="labelDepositar">Valor</label>
+                <input type="text" placeholder="R$ 13,00" class="inputDepositar" id="inputDepositar" step="0.01" />
+              </div>
+
+              <div class="metodoPagamento" id="metodoPagamento">
+                <label for="selectPagamento" class="labelPagamento">Método de Pagamento</label>
+                <select class="selectPagamento" id="selectPagamento">
+                  <option value="pix">PIX</option>
+                  <option value="cartaoDebito">Débito</option>
+                  <option value="cartaoCredito">Crédito</option>
+                  <option value="boleto">Boleto</option>
+                </select>
+              </div>
+
+              <div class="botaoDepositarB" id="botaoDepositarB">
+                <button class="depositarB" id="depositarB" onclick="depositar()">Depositar</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="extrato" id="extrato">
+            <div class="cimaDepositarPG2" id="cimaDepositarPG2">
+              <div class="iconeDepositarPG2" id="iconeDepositarPG2">
+                <img src="../images/papel (1).png" alt="carteira" class="imgDepositar" id="imgDepositar">
+              </div>
+              <div class="textoDepositarPG2" id="textoDepositarPG2">
+                <h3>Extrato</h3>
+              </div>
+            </div>
+
+            <div class="extratos" id="extratos">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+  </div>
+
+  </div>
+
+  </div>
+
+  <!-- Fundo escuro cobrindo a tela quando o menu abre -->
+  <div class="overlay" id="overlay" onclick="traitMenu()"></div>
+
+</body>
+
+</html>

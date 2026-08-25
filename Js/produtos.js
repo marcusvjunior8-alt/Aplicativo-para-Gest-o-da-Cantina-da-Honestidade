@@ -19,6 +19,12 @@ let itensCarrinho = [];
 // Variável para guardar o termo de pesquisa atual
 let termoPesquisaAtivo = ""; 
 
+/* Manipulação dos painéis laterais */
+// Declaramos as variáveis fora das funções para que sejam acessíveis globalmente
+const carteira = document.getElementById("saldo");
+const carrinho = document.getElementById("carrinho");
+const cards = document.getElementById('primeiro');
+
 // ==========================================================
 // 2. INICIALIZAÇÃO (Roda quando a página carrega)
 // ==========================================================
@@ -183,10 +189,7 @@ function cancelarCompra() {
 
 // Ajusta o grid de produtos quando os painéis laterais abrem
 function atualizarcards() {
-  const carteira = document.getElementById("saldo");
-  const carrinho = document.getElementById("carrinho");
-  const cards = document.getElementById('primeiro');
-
+  // Verificação de segurança caso os elementos não existam na página
   if (!carteira || !carrinho || !cards) return;
 
   const carteiraAberta = window.getComputedStyle(carteira).display !== "none";
@@ -202,20 +205,20 @@ function atualizarcards() {
 
 // Abre/fecha o painel da Carteira
 function toggleCarteira() {
-  const carteira = document.getElementById("saldo");
   if (!carteira) return;
 
   const atual = window.getComputedStyle(carteira).display;
+  /* Alterna entre flex e none sem interferir no carrinho */
   carteira.style.display = (atual === "none") ? "flex" : "none";
   atualizarcards();
 }
 
 // Abre/fecha o painel do Carrinho
 function toggleCarrinho() {
-  const carrinho = document.getElementById("carrinho");
   if (!carrinho) return;
 
   const atual = window.getComputedStyle(carrinho).display;
+  /* Alterna entre block e none sem interferir na carteira */
   carrinho.style.display = (atual === "none") ? "block" : "none";
   atualizarcards();
 }
@@ -295,7 +298,6 @@ function processarPagamento(){
 
   // 4. Fecha Modal e Esconde Painel do Carrinho
   fecharModalPagamento();
-  const carrinho = document.getElementById("carrinho");
   if (carrinho) {
     carrinho.style.display = "none";
   }

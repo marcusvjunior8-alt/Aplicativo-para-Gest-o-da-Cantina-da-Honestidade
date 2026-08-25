@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../images/favicon.png">
-  <title>Cantina da bondade</title>
+  <title>Cantina da Bondade - Produtos</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="../css/css.css" />
@@ -21,13 +21,13 @@
   <div class="conteudo" id="conteudo">
 
     <!-- Menu lateral (Drawer) -->
-    <div class="lado" id="lado">
+    <nav class="lado" id="lado" aria-label="Navegação lateral">
       <!-- Botão para fechar o menu -->
-      <button class="btn-fechar" onclick="traitMenu()">&times;</button>
+      <button class="btn-fechar" onclick="traitMenu()" aria-label="Fechar menu">&times;</button>
 
       <!-- Logo -->
       <div class="logo" id="logo">
-        <img src="../images/Aug 14, 2026, 03_21_48 PM.png" alt="LOGO" class="logo" />
+        <img src="../images/Aug 14, 2026, 03_21_48 PM.png" alt="LOGO - Cantina da Bondade" class="logo" />
       </div>
 
       <!-- Ícones/Menu -->
@@ -36,10 +36,10 @@
         <!-- Início -->
         <div class="inicio" id="inicio">
           <div class="imgInicio" id="imgInicio">
-            <img src="../images/home.png" alt="home" />
+            <img src="../images/home.png" alt="" aria-hidden="true" />
           </div>
           <div class="txthome" id="txthome">
-            <h4 class="txinicio">Inicio</h4>
+            <h4 class="txinicio"><a href="./teladeprodutos.html" class="link">Início</a></h4>
           </div>
         </div>
 
@@ -47,10 +47,24 @@
         <button id="butaocarteira" onclick="toggleCarteira()">
           <div class="carteira" id="carteira">
             <div class="imgcarteira" id="imgcarteira">
-              <img src="../images/carteira.png" alt="carteira" />
+              <img src="../images/carteira.png" alt="" aria-hidden="true" />
             </div>
+
             <div class="txtcarteira" id="txtcarteira">
               <h4 class="txcarteira">Carteira</h4>
+            </div>
+          </div>
+        </button>
+
+        <!-- Compras / Carrinho -->
+        <button class="compras" id="botaocarrinho" onclick="toggleCarrinho()">
+          <div class="Compras" id="Compras">
+            <div class="imgCompras" id="imgCompras">
+              <img src="../images/carteira.png" alt="" aria-hidden="true" />
+            </div>
+
+            <div class="txtCompras" id="txtCompras">
+              <h4 class="txcompras">Compras</h4>
             </div>
           </div>
         </button>
@@ -58,7 +72,7 @@
         <!-- Histórico -->
         <div class="historico" id="historico">
           <div class="imghistorico" id="imghistorico">
-            <img src="../images/carteira.png" alt="historico" />
+            <img src="../images/carteira.png" alt="" aria-hidden="true" />
           </div>
           <div class="txthistorico" id="txthistorico">
             <h4 class="txhistorico"><a href="./historico.html" class="link">Histórico</a></h4>
@@ -68,7 +82,7 @@
         <!-- Perfil -->
         <div class="perfil" id="perfil">
           <div class="imgPerfil" id="imgPerfil">
-            <img src="../images/carteira.png" alt="perfil" />
+            <img src="../images/carteira.png" alt="" aria-hidden="true" />
           </div>
           <div class="imgPerfil" id="imgPerfilAlt">
             <h4 class="txperfil"><a href="./perfil.html" class="link">Perfil</a></h4>
@@ -89,32 +103,32 @@
         </a>
       </div>
 
-    </div> <!-- FIM DA DIV LADO -->
+    </nav> <!-- FIM DO MENU LADO -->
 
 
     <!-- Parte direita principal da página -->
-    <div class="direita">
+    <main class="direita">
 
-      <!-- Cabeçalho (O carrinho DEVE ficar DENTRO da div "cima") -->
-      <div class="cima" id="cima">
-        <button id="btnMenu" class="btn-menu" onclick="traitMenu()">
+      <!-- Cabeçalho -->
+      <header class="cima" id="cima">
+        <button id="btnMenu" class="btn-menu" onclick="traitMenu()" aria-label="Abrir menu lateral" aria-controls="lado">
           &#9776; <!-- Ícone dos 3 traços -->
         </button>
 
         <div class="perfil-usuario-cabecalho">
           <img src="../perfil (1).png" alt="Foto de usuário" class="foto-perfil-cabecalho">
           <div>
-            <h2>Hello, Student!</h2>
+            <h1>Hello, Student!</h1>
             <p>Welcome back</p>
           </div>
         </div>
 
         <!-- ÍCONE DO CARRINHO NO CANTO SUPERIOR DIREITO -->
-        <button class="btn-carrinho-topo" onclick="toggleCarrinho()">
-          <img src="../images/preto carrinho.png" alt="Carrinho" class="icone-carrinho-topo">
+        <button class="btn-carrinho-topo" onclick="toggleCarrinho()" aria-label="Abrir carrinho de compras">
+          <img src="../images/preto carrinho.png" alt="" class="icone-carrinho-topo" aria-hidden="true">
           <span id="contador-carrinho" class="badge-carrinho">0</span>
         </button>
-      </div>
+      </header>
 
       <!-- Conteúdo principal abaixo do cabeçalho -->
       <div class="conteudoMeio" id="conteudoMeio">
@@ -125,13 +139,13 @@
           <!-- Pesquisa e título -->
           <div class="pesquisa" id="pesquisar">
             <div class="textoPesquisa" id="textoPesquisa">
-              <h3>Catálogo de Produtos</h3>
-              <h4>Escolha seus produtos</h4>
+              <h2>Catálogo de Produtos</h2>
+              <p>Escolha seus produtos</p>
             </div>
 
             <!-- Campo de pesquisa -->
             <div class="inputPesquisa" id="inputPesquisa">
-              <button class="lupa"><img src="../images/lupa.png" class="imglupa" width="15px" alt="lupa"></button>
+              <button class="lupa" aria-label="Buscar"><img src="../images/lupa.png" class="imglupa" width="15px" alt="" aria-hidden="true"></button>
               <input class="input_search" type="text" name="pesquisar" id="inputPesquisar" placeholder="Pesquisar..." />
             </div>
           </div>
@@ -144,7 +158,7 @@
         </div>
 
         <!-- Painéis laterais (Carteira e Carrinho) -->
-        <div class="painel-lateral" id="direitaPainel">
+        <aside class="painel-lateral" id="direitaPainel">
 
           <!-- Carteira -->
           <div class="saldo" id="saldo">
@@ -153,22 +167,24 @@
                 <div class="CarteiraDigital" id="CarteiraDigital">
                   <h2>Carteira Digital</h2>
                 </div>
+
                 <div class="saldoUser" id="saldoUser">
-                  <h4>Saldo atual</h4>
-                  <h2>R$ 13</h2>
+                  <h3>Saldo atual</h3>
+                  <h2>R$ 13,00</h2>
                 </div>
               </div>
 
               <div class="IconeSaldoDIV" id="IconeSaldoDIV">
-                <img src="../images/carteira.png" alt="carteira" class="IconeSaldo" id="IconeSaldo" />
+                <img src="../images/carteira.png" alt="" class="IconeSaldo" id="IconeSaldo" aria-hidden="true" />
               </div>
             </div>
 
             <div class="botoes" id="botoes">
-              <button id="depositar" class="depositar">
-                <div class="somaIcone" id="somaIcone">+</div>
-                <div class="depositarTexto" id="depositarTexto">depositar</div>
-              </button>
+              <a href="../html/verCarteira.html" style="text-decoration:none;">
+                <button id="depositar" class="depositar">
+                  <div class="depositarTexto" id="depositarTexto">Ver carteira</div>
+                </button>
+              </a>
 
               <button class="VerExtrato" id="VerExtrato">
                 Ver Extrato
@@ -184,7 +200,7 @@
             </div>
 
             <div class="meiocarrinho" id="meiocarrinho">
-              <p>Seu carrinho esta vazio</p>
+              <p>Seu carrinho está vazio</p>
               <small>"Adicione um produto para começar."</small>
             </div>
 
@@ -195,18 +211,17 @@
               </div>
 
               <div class="botaoCarrinhoDIV" id="botaoCarrinhoDIV">
-                <button class="botaoCarrinho" id="botaoCarrinho" onclick="finalizarPagamento()">Finalizar
-                  compra</button>
+                <button class="botaoCarrinho" id="botaoCarrinho" onclick="finalizarPagamento()">Finalizar compra</button>
                 <button class="btnCancelar" onclick="cancelarCompra()">Cancelar Compra</button>
               </div>
             </div>
           </div>
 
-        </div>
+        </aside>
 
       </div>
 
-    </div>
+    </main>
 
   </div>
 
@@ -216,10 +231,10 @@
   <!-- Modal de Pagamento -->
   <div class="modal-pagamento-overlay" id="modalPagamento">
     <div class="modal-pagamento-card">
-      <button class="btn-fechar-modal" onclick="fecharModalPagamento()">&times;</button>
+      <button class="btn-fechar-modal" onclick="fecharModalPagamento()" aria-label="Fechar modal de pagamento">&times;</button>
 
-      <h3>Formas de Pagamento</h3>
-      <p class="modal-substituto">Escolha como desejar pagar:</p>
+      <h2>Formas de Pagamento</h2>
+      <p class="modal-substituto">Escolha como deseja pagar:</p>
 
       <div class="opcoes-pagamento">
         <label class="opcao-card">
