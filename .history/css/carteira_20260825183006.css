@@ -1,0 +1,544 @@
+
+/* Configurações gerais */
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #FFF3E0;
+}
+
+
+/* Conteúdo principal */
+.conteudo {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.direita {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Área principal */
+.conteudoMeio {
+    background-color: #FFF3E0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 300px;
+    margin-left: 30px;
+    border-radius: 15px;
+}
+
+
+/* Produtos */
+.produtos {
+    width: 100%;
+}
+
+.pesquisa {
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 50px;
+    gap: 40px;
+}
+
+.textoPesquisa h2 {
+    color: #2E7D32;
+}
+
+.textoPesquisa p {
+    color: #66BB6A;
+}
+
+
+/* Campo de pesquisa */
+.inputPesquisa {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    padding: 5px 12px;
+    height: 40px;
+}
+
+.lupa {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.imglupa {
+    width: 18px;
+    height: 18px;
+}
+
+.input_search {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+    background: transparent;
+}
+
+
+/* Cards */
+.primeiro {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    gap: 20px;
+    padding: 20px;
+}
+
+.DivCard {
+    background-color: white;
+    width: 220px;
+    padding: 13px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+}
+
+.texto {
+    color: #3C2415;
+}
+
+.preco {
+    color: #e4c8a4;
+}
+
+.fotoCard {
+    width: 180px;
+    height: 180px;
+}
+
+
+/* Carteira */
+.saldo {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 400px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    margin: 20px;
+}
+
+.cimaSaldo {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.textosSaldo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.CarteiraDigital {
+    color: #2E7D32;
+}
+
+.textosSaldo h3 {
+    color: black;
+}
+
+.saldoUser h2 {
+    color: #2E7D32;
+    font-size: 40px;
+}
+
+
+/* Botão da carteira */
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: auto;
+}
+
+.depositar {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #2E7D32;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.depositar:hover {
+    background-color: #1B5E20;
+}
+
+
+/* Ícone da carteira */
+.IconeSaldo {
+    width: 140px;
+    height: 140px;
+}
+
+
+/* Menu lateral */
+.lado {
+    width: 250px;
+    background-color: #2E7D32;
+    text-align: center;
+    height: 100vh;
+    position: fixed;
+    left: -250px;
+    top: 0;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.lado.aberto {
+    left: 0;
+}
+
+.logo {
+    width: 220px;
+    height: 150px;
+}
+
+.icons {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Opções do menu */
+.inicio,
+.carteira,
+.historico,
+.perfil {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.inicio {
+    margin-top: 0;
+}
+
+.link,
+.link-sair {
+    color: white;
+    text-decoration: none;
+}
+
+.butaosair {
+    color: white;
+}
+
+.txinicio,
+.txcarteira,
+.txhistorico,
+.txperfil {
+    color: white;
+}
+
+
+/* Botão carteira */
+#butaocarteira {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: white;
+}
+
+
+/* Botão para abrir o menu */
+.btn-menu {
+    background: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 26px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+
+/* Botão para fechar o menu */
+.btn-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+
+/* Fundo escuro quando o menu abre */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Botão de sair */
+.sair {
+    display: flex;
+    gap: 20px;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+.sair img {
+    width: 35px;
+    height: 35px;
+}
+
+
+/* Cabeçalho */
+.cima {
+    background-color: white;
+    border-bottom: gray solid 1px;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cima-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* Informações do usuário */
+.perfil-usuario-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.foto-perfil-cabecalho {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.texto-usuario-cabecalho h2 {
+    font-size: 18px;
+}
+
+.texto-usuario-cabecalho p {
+    font-size: 14px;
+    color: #777;
+}
+
+
+/* Botão do carrinho */
+.btn-carrinho-topo {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icone-carrinho-topo {
+    width: 30px;
+    height: 30px;
+}
+
+.badge-carrinho {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    font-size: 12px;
+}
+
+
+/* Painel lateral */
+.painel-lateral {
+    width: 420px;
+}
+
+
+/* Carrinho */
+.carrinho {
+    background-color: white;
+    width: 400px;
+    min-height: 500px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    margin: 20px;
+    display: none;
+    flex-direction: column;
+}
+
+.carrinho.ativo {
+    display: flex;
+}
+
+.txtCarrinho {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.meiocarrinho {
+    flex: 1;
+    text-align: center;
+    padding-top: 100px;
+    color: #777;
+}
+
+.baixoCarrinho {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+
+/* Parte de baixo do carrinho */
+.textoBaixoCarrinho {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.botaoCarrinhoDIV {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botaoCarrinho {
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2E7D32;
+    color: white;
+    cursor: pointer;
+}
+
+.btnCancelar {
+    height: 40px;
+    border: 1px solid red;
+    border-radius: 8px;
+    background-color: white;
+    color: red;
+    cursor: pointer;
+}
+
+
+/* Modal de pagamento */
+.modal-pagamento-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-pagamento-overlay.ativo {
+    display: flex;
+}
+
+.modal-pagamento-card {
+    background-color: white;
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.btn-fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* Opções de pagamento */
+.opcoes-pagamento {
+    margin: 20px 0;
+}
+
+.opcao-card {
+    display: block;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+
+/* Resumo do pagamento */
+.modal-resumo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+/* Confirmar pagamento */
+.btn-confirmar-pagamento {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2E7D32;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}

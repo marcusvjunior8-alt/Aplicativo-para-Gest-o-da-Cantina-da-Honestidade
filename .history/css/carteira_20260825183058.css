@@ -1,0 +1,863 @@
+/*
+   1. CONFIGURAÇÕES GERAIS E RESET
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #FFF3E0;
+    max-height: 100vh;
+}
+
+img {
+    border-radius: 17px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: #66BB6A;
+    transform: translateY(-10px);
+}
+
+/*
+   2. ESTRUTURA PRINCIPAL E LAYOUT
+*/
+.conteudo {
+    display: flex;
+}
+
+.direita {
+    flex: 1;
+}
+
+.conteudoMeio {
+    background-color: #FFF3E0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+    margin-left: 30px;
+    border-radius: 15px;
+    padding-bottom: 300px;
+}
+
+/* Fundo escuro (Overlay) para o menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.overlay.ativo {
+    display: block;
+}
+
+/*
+   3. MENU LATERAL (GAVETA / DRAWER)
+*/
+.lado {
+    position: fixed;
+    top: 0;
+    left: -270px;
+    width: 250px;
+    height: 100vh;
+    background-color: #2E7D32;
+    text-align: center;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.lado.ativo {
+    left: 0;
+}
+
+/* Botão Fechar (X) dentro do Menu Lateral */
+.btn-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-fechar:hover {
+    color: #a5d6a7;
+}
+
+/* Logo do Menu Lateral */
+.logo {
+    width: 220px;
+    height: 150px;
+}
+
+/* Ícones e Itens do Menu */
+.icons {
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.inicio,
+.carteira,
+.Compras,
+.historico,
+.perfil {
+    display: flex;
+    gap: 20px;
+    border-radius: 7px;
+    transition: 0.3s ease;
+    padding-left: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    color: #66BB6A;
+    ;
+}
+
+.inicio:hover,
+.carteira:hover,
+.Compras:hover,
+.historico:hover,
+.perfil:hover {
+    background-color: rgba(245, 245, 245, 0.548);
+    transform: translateY(-5px);
+}
+
+.txhistorico,
+.txcarteira,
+.txperfil,
+.txcompras,
+.txinicio {
+    margin-top: 5px;
+}
+
+#butaocarteira,
+#botaocarrinho {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Área de Sair */
+.sair {
+  margin-top: auto;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.link-sair {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: 0.3s ease;
+  width: 80%;
+}
+
+.link-sair:hover {
+  background-color: rgba(245, 245, 245, 0.548);
+  transform: translateY(-3px);
+}
+
+.link-sair h4 {
+  color: #66BB6A;
+  margin: 0;
+}
+
+.link-sair:hover h4 {
+  color: black;
+}
+
+/*
+   4. CABEÇALHO (CIMA) E BOTÃO HAMBÚRGUER
+*/
+.cima {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    border-bottom: gray solid 1px;
+    height: 60px;
+    padding-left: 20px;
+    border-radius: 10px;
+}
+
+/* Botão dos 3 Traços */
+.btn-menu {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #2E7D32;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.btn-menu:hover {
+    transform: scale(1.1);
+}
+
+/*
+   5. ÁREA DE PESQUISA E PRODUTOS
+*/
+.produtos {
+    width: 100%;
+    min-width: 0;
+}
+
+.pesquisa {
+    display: flex;
+    gap: 40px;
+    width: auto;
+    text-align: center;
+    justify-content: left;
+    padding-left: 50px;
+}
+
+.pesquisa h3,
+.pesquisa h4 {
+    color: #66BB6A;
+}
+
+.inputPesquisa {
+    position: relative;
+    width: 200px;
+}
+
+.input_search {
+    border-radius: 20px;
+    width: 200px;
+    margin-top: 5px;
+    padding: 10px 10px 10px 35px;
+    border: none;
+    outline: none;
+}
+
+.lupa {
+    position: absolute;
+    right: 10px;
+    top: 43%;
+    transform: translateY(-20%);
+    font-size: 20px;
+    z-index: 1;
+    color: #666;
+    border-radius: 100px;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.lupa:hover {
+    background-color: lightblue;
+    transition: 0.3s;
+    transform: translateY(-10px);
+}
+
+.imglupa {
+    margin: 2px;
+}
+
+/*
+   6. CARDS DOS PRODUTOS
+*/
+.primeiro {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.primeiro.painel-aberto {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.DivCard {
+    background-color: rgb(173, 173, 173);
+    width: 100%;
+    padding: 13px;
+    text-align: center;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.DivCard:hover {
+    transform: translateY(-10px);
+    box-shadow: #2E7D32 0 0 10px;
+}
+
+.fotoCard {
+    width: 180px;
+    height: 180px;
+}
+
+.texto {
+    color: #3C2415;
+    margin-top: 5px;
+}
+
+.preco {
+    color: #2E7D32;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.butcard {
+    border-radius: 20px;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.butcard:hover {
+    color: #2E7D32;
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+/* 
+   7. PAINÉIS LATERAIS (CARTEIRA E CARRINHO)
+*/
+/* Carteira Digital */
+.saldo {
+    background-color: rgb(163, 163, 163);
+    display: none;
+    flex-direction: column;
+    height: 300px;
+    width: 400px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-top: 61px;
+}
+
+.cimaSaldo {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.textosSaldo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.CarteiraDigital {
+    color: #2E7D32;
+}
+
+.textosSaldo h4 {
+    color: black;
+}
+
+.saldoUser h2 {
+    color: #2E7D32;
+    font-size: 40px;
+}
+
+.IconeSaldo {
+    width: 140px;
+    height: 140px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: auto;
+}
+
+.depositar {
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #2E7D32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.depositar:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.depositarTexto {
+    padding-top: 8px;
+    font-size: 15px;
+}
+
+.somaIcone {
+    font-size: 30px;
+}
+
+.VerExtrato {
+    width: 150px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.VerExtrato:hover {
+    background-color: #2E7D32;
+    color: white;
+}
+
+/* Carrinho de Compras */
+.carrinho {
+    background-color: white;
+    text-align: center;
+    width: 400px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    margin-top: 50px;
+    display: none;
+    margin-right: 10px;
+}
+
+.txtCarrinho {
+    display: flex;
+    justify-content: center;
+    gap: 140px;
+}
+
+.txtCarrinho p {
+    padding-top: 5px;
+}
+
+.meiocarrinho {
+    margin-top: 60px;
+    border-bottom: lightgrey 1px solid;
+}
+
+.textoBaixoCarrinho {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.textoBaixoCarrinho h3 {
+    color: #2E7D32;
+}
+
+.botaoCarrinho {
+    width: 170px;
+    height: 40px;
+    background-color: rgb(255, 230, 0);
+    border-radius: 30px;
+    border: none;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.botaoCarrinho:hover {
+    transform: translateY(-1px);
+}
+/*
+   8. PÁGINA DE HISTÓRICO DE COMPRAS
+*/
+.historico-container {
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.historico-header {
+  margin-bottom: 25px;
+}
+
+.historico-header h3 {
+  color: #2E7D32;
+  font-size: 24px;
+}
+
+.historico-header p {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.historico-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pedido-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pedido-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.pedido-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pedido-id {
+  font-weight: bold;
+  color: #3C2415;
+  font-size: 16px;
+}
+
+.pedido-data {
+  font-size: 12px;
+  color: #888;
+}
+
+.pedido-detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #444;
+}
+
+.preco-destaque {
+  color: #2E7D32;
+  font-weight: bold;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.concluido {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.status.cancelado {
+  background-color: #FFEBEE;
+  color: #C62828;
+}
+/*
+   9. PÁGINA DE PERFIL DO USUÁRIO
+*/
+.perfil-container {
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.perfil-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.perfil-foto {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2E7D32;
+}
+
+.perfil-info-basica h3 {
+  color: #2E7D32;
+  font-size: 22px;
+}
+
+.perfil-info-basica p {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.perfil-divisor {
+  border: 0;
+  height: 1px;
+  background-color: #E0E0E0;
+  margin-bottom: 25px;
+}
+
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-grupo label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #3C2415;
+}
+
+.input-perfil {
+  padding: 12px 15px;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-perfil:focus {
+  border-color: #2E7D32;
+}
+
+.input-perfil:disabled {
+  background-color: #F5F5F5;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.perfil-botoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.btn-salvar {
+  background-color: #2E7D32;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-salvar:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/*tela de carteira*/
+
+.cimaSaldo{
+    background-color: rgb(255, 255, 255);
+    height: 220px;
+    border-radius: 15px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+    padding-top: 0px;
+}
+
+.cimaSaldo h3{
+     font-size: 30px;
+     padding-top: 50px;
+}
+
+.cimaSaldo h1{
+    color: #2E7D32;
+    font-size: 64px;
+}
+
+.imgSaldoCima {
+    padding-top: 10px;
+    align-items: center;
+}
+
+.imgSaldo{
+    width: 200px;
+    height: 200px;
+}
+
+.depositarPG2 {
+    background-color: white;
+    width: 450px;
+    height: 370px;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.imgDepositar{
+    width: 50px;
+    height: 50px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cimaDepositarPG2{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    margin-bottom: 20px;
+    border-bottom: lightgreen 2px solid;
+    padding-bottom: 4px;
+}
+
+.inputDepositar{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.valorDepositar label{
+    font-size: 20px;
+    color: #000000;
+    padding-bottom: 5px;
+}
+
+.valorDepositar{
+    display: flex;
+    flex-direction: column;
+}
+
+.selectPagamento{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.labelPagamento{
+    font-size: 20px;
+    color: #000000;
+    padding-bottom: 5px;
+}
+
+.botaoDepositarB{
+    font-size: 20px;
+    color: #000000;
+    justify-content: center;
+    display: flex;
+}
+
+.depositarB{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #2E7D32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 20px;
+    align-items: center;
+}
+
+.depositarB:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.extrato{
+    background-color: white;
+    width: 650px;
+    height: 370px;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.extratos{
+    max-height: 270px;
+    overflow-y: auto; 
+    padding-right: 5px;
+}
+
+.baixoCarteira{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.extratoItem{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: lightgrey 1px solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    gap: 200px;
+}
+
+.esquerda{
+    display: flex;
+    gap: 30px;
+    justify-content: left;
+}
